@@ -1,3 +1,7 @@
-<p>
-  posts works!
-</p>
+<li [ngClass]="{'list-group-item': true}">
+  <h2>{{postName}} </h2>
+  <div style="left: 50%">{{datePost | async | date: 'EEEE d MMMM y' | lowercase}}</div>
+  <p>{{getDetails()}}</p>
+  <button class="btn btn-success">Love it !</button>
+  <button class="btn btn-danger">Don't love it !</button>
+</li>
