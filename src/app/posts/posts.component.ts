@@ -9,35 +9,24 @@ export class PostsComponent implements OnInit {
 
   @Input() postName: string;
   @Input() postDetails: string;
-
-  posts = [
-    {
-      name: 'Mon premier post',
-      details: 'Détails de mon premier post'
-    },
-    {
-      name: 'Mon deuxième post',
-      details: 'Détails de mon deuxième post'
-    },
-    {
-      name: 'Mon troisième post',
-      details: 'Détails de mon troisième post'
-    }
-  ];
+  @Input() postDate: Date;
+  @Input() loveIts: number;
 
   constructor() { }
 
-  ngOnInit() {
+  getDislike() {
+    this.loveIts--;
+    console.log('methode getDisLike :', this.loveIts);
   }
 
-  datePost = new Promise((resolve, reject) => {
-    const date = new Date();
-    setTimeout(
-      () => {
-        resolve(date);
-      }, 2000
-    );
-  });
+  getLove() {
+    this.loveIts++;
+    console.log('methode getlove :', this.loveIts);
+
+  }
+
+  ngOnInit() {
+  }
 
   getDetails() {
     return this.postDetails;

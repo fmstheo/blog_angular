@@ -1,7 +1,10 @@
-<li [ngClass]="{'list-group-item': true}">
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': loveIts > 0,
+                'list-group-item-danger': loveIts < 0}">
+  <p style="position: absolute; left: 88%; color: darkgray; font-style: italic">{{postDate | async | date: 'short' | uppercase}}</p>
   <h2>{{postName}} </h2>
-  <div style="left: 50%">{{datePost | async | date: 'EEEE d MMMM y' | lowercase}}</div>
   <p>{{getDetails()}}</p>
-  <button class="btn btn-success">Love it !</button>
-  <button class="btn btn-danger">Don't love it !</button>
+  <p style="display: none">{{loveIts}}</p>
+  <button class="btn btn-success" (click)="getLove()">Love it !</button>
+  <button class="btn btn-danger" (click)="getDislike()">Don't love it !</button>
 </li>
